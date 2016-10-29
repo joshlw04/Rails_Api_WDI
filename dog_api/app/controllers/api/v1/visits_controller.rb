@@ -1,9 +1,14 @@
 class Api::V1::VisitsController < ApplicationController
 
+  def index
+    visits = Visit.all.includes(:owner)
+    render json: visits, include: :owner
+  end
+
   def create
     visit = Visit.new(visit_params)
     if visit.save
-      render json: visit, status: :create
+      render json: visit, status: :created
     else
       render json: visit.errors, status: :unprocessable_entity
     end

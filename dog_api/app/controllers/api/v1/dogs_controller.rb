@@ -7,7 +7,7 @@ class Api::V1::DogsController < ApplicationController
   def create
     dog = Dog.new(dog_params)
     if dog.save
-      render json: dog, status: :create
+      render json: dog, status: :created
     else
       render json: dog.errors, status: :unprocessable_entity
     end

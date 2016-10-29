@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources :dogs, only: [:index, :create]
       resources :owners, only: [:index, :create]
       resources :dogparks, only: [:index, :create]
-      resources :visits, only: [:create]
+      resources :visits, only: [:index, :create]
     end
   end
 end
